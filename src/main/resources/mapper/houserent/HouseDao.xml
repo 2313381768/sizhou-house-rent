@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.young.sizhou.houserent.dao.HouseDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.young.sizhou.houserent.entity.HouseEntity" id="houseMap">
+        <result property="hId" column="h_id"/>
+        <result property="houseDesc" column="house_desc"/>
+        <result property="houseModel" column="house_model"/>
+        <result property="houseArea" column="house_area"/>
+        <result property="houseFloor" column="house_floor"/>
+        <result property="houseType" column="house_type"/>
+        <result property="housePrice" column="house_price"/>
+        <result property="houseAddress" column="house_address"/>
+        <result property="houseImage" column="house_image"/>
+        <result property="communityName" column="community_name"/>
+        <result property="houseLinkMan" column="house_linkman"/>
+        <result property="houseOriented" column="house_oriented"/>
+        <result property="houseDetailesImg" column="house_detailes_img"/>
+        <result property="publisher" column="publisher"/>
+        <result property="publishTime" column="publish_time"/>
+    </resultMap>
+    <update id="updateHouseStatus">
+        UPDATE t_house SET `status` = #{status} WHERE h_id = #{hId}
+    </update>
+    <select id="findAllHouse" resultType="com.young.sizhou.houserent.entity.HouseEntity">
+        select * from t_house limit #{page},#{limit}
+    </select>
+    <select id="findHouseByLike" resultType="com.young.sizhou.houserent.entity.HouseEntity">
+        SELECT
+            *
+        FROM
+            t_house h
+        WHERE
+                CONCAT(
+                        h.community_name,
+                        h.house_desc,
+                        h.house_model
+                    ) LIKE CONCAT("%", #{keywords}, "%")
+    </select>
+    <select id="findHouseByUser" resultType="com.young.sizhou.houserent.entity.HouseEntity">
+        select * from t_house where publisher = #{publisher} limit #{page},#{limit}
+    </select>
+
+
+</mapper>
