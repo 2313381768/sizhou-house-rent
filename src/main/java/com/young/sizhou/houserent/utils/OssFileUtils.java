@@ -20,11 +20,11 @@ import java.util.Date;
  */
 public class OssFileUtils {
 
-    private static String endpoint = "oss-cn-beijing.aliyuncs.com";
+    private static String endpoint = "**";
 
-    private static String accessKeyId ="LTAI5tKGXkQ9snHjMQXj93UN";
+    private static String accessKeyId ="**";
 
-    private static String accessKeySecret = "FjQpPa1Y7TVPradv3RKqF4JTu0EWWz";
+    private static String accessKeySecret = "**";
 
     private static String bucketName = "youngblogupload";
 
