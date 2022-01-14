@@ -6,7 +6,9 @@ import com.young.sizhou.houserent.entity.OrderEntity;
 import com.young.sizhou.houserent.entity.UsersEntity;
 import com.young.sizhou.houserent.service.HouseService;
 import com.young.sizhou.houserent.service.OrderService;
+import com.young.sizhou.houserent.utils.R;
 import com.young.sizhou.houserent.vo.Page;
+import com.young.sizhou.houserent.vo.SaleDayVo;
 import com.young.sizhou.houserent.vo.UserOrder;
 import com.young.sizhou.houserent.vo.UserOrderData;
 import lombok.extern.slf4j.Slf4j;
@@ -92,5 +94,11 @@ public class OrderController {
 		if(b)
 			return "OK";
 		return "FAIL";
+	}
+	@RequestMapping("/oneMouthOrder")
+	@ResponseBody
+	public R getOneMouthOrder(){
+		SaleDayVo dayVo = orderService.getOneMouthOrder();
+		return R.ok().put("data",dayVo);
 	}
 }

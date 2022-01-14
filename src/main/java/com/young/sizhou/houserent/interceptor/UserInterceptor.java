@@ -32,7 +32,7 @@ public class UserInterceptor implements HandlerInterceptor {
 		if (u != null || admin != null) {
 			return true;
 		}
-		response.sendRedirect("/");
+		response.sendRedirect("http://localhost:8080/");
 		return false;
 	}
 

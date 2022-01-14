@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.young.sizhou.houserent.entity.OrderEntity;
 import com.young.sizhou.houserent.utils.PageUtils;
 import com.young.sizhou.houserent.vo.Page;
+import com.young.sizhou.houserent.vo.SaleDayVo;
 import com.young.sizhou.houserent.vo.UserOrder;
 
 import java.util.List;
@@ -18,5 +19,7 @@ import java.util.Map;
  */
 public interface OrderService extends IService<OrderEntity> {
     List<UserOrder> findAllOrder(Page p);
+
+    SaleDayVo getOneMouthOrder();
 }
 
